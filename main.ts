@@ -20,6 +20,12 @@ input.onButtonPressed(Button.B, function () {
         }
     }
 })
+input.onGesture(Gesture.Shake, function () {
+    Steps += 1
+    if (App_Selected == "Steps") {
+        Full_Clear()
+    }
+})
 input.onLogoEvent(TouchButtonEvent.Pressed, function () {
     if (App_Selected == "Menu") {
         Full_Clear()
@@ -31,6 +37,7 @@ input.onLogoEvent(TouchButtonEvent.Pressed, function () {
     }
 })
 let Degrees = 0
+let Steps = 0
 let App_Selected = ""
 let App_To_Be_Selected = ""
 App_To_Be_Selected = "Compass"
@@ -48,6 +55,12 @@ basic.forever(function () {
         } else if (App_To_Be_Selected == "Menu") {
             App_To_Be_Selected = "Compass"
         }
+    }
+})
+basic.forever(function () {
+    if (App_Selected == "Steps") {
+        Full_Clear()
+        basic.showString("" + (Steps))
     }
 })
 basic.forever(function () {
