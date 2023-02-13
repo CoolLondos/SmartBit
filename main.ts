@@ -3,6 +3,8 @@ input.onButtonPressed(Button.A, function () {
         Full_Clear()
         if (App_To_Be_Selected == "Steps") {
             App_To_Be_Selected = "Compass"
+        } else if (App_To_Be_Selected == "Magnet Detector") {
+            App_To_Be_Selected = "Steps"
         }
     }
 })
@@ -16,7 +18,7 @@ input.onButtonPressed(Button.B, function () {
         if (App_To_Be_Selected == "Compass") {
             App_To_Be_Selected = "Steps"
         } else if (App_To_Be_Selected == "Steps") {
-        	
+            App_To_Be_Selected = "Magnet Detector"
         }
     }
 })
@@ -54,7 +56,16 @@ basic.forever(function () {
             basic.showString("Steps")
         } else if (App_To_Be_Selected == "Menu") {
             App_To_Be_Selected = "Compass"
+        } else if (App_To_Be_Selected == "Magnet Detector") {
+            Full_Clear()
+            basic.showString("Magnet Detector")
         }
+    }
+})
+basic.forever(function () {
+    if (App_Selected == "Magnet Detector") {
+        Full_Clear()
+        basic.showString("" + (input.magneticForce(Dimension.Strength)))
     }
 })
 basic.forever(function () {
