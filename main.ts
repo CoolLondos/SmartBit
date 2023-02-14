@@ -3,8 +3,15 @@ input.onButtonPressed(Button.A, function () {
         Full_Clear()
         if (App_To_Be_Selected == "Steps") {
             App_To_Be_Selected = "Compass"
-        } else if (App_To_Be_Selected == "Magnet Detector") {
+        } else if (App_To_Be_Selected == "Mag Detector") {
             App_To_Be_Selected = "Steps"
+        } else if (App_To_Be_Selected == "Settings") {
+            App_To_Be_Selected = "Mag Detector"
+        }
+    } else if (App_Selected == "Settings") {
+        Full_Clear()
+        if (true) {
+        	
         }
     }
 })
@@ -18,7 +25,9 @@ input.onButtonPressed(Button.B, function () {
         if (App_To_Be_Selected == "Compass") {
             App_To_Be_Selected = "Steps"
         } else if (App_To_Be_Selected == "Steps") {
-            App_To_Be_Selected = "Magnet Detector"
+            App_To_Be_Selected = "Mag Detector"
+        } else if (App_To_Be_Selected == "Mag Detector") {
+            App_To_Be_Selected = "Settings"
         }
     }
 })
@@ -39,6 +48,7 @@ input.onLogoEvent(TouchButtonEvent.Pressed, function () {
     }
 })
 let Degrees = 0
+let Settings_Item = ""
 let Steps = 0
 let App_Selected = ""
 let App_To_Be_Selected = ""
@@ -56,14 +66,23 @@ basic.forever(function () {
             basic.showString("Steps")
         } else if (App_To_Be_Selected == "Menu") {
             App_To_Be_Selected = "Compass"
-        } else if (App_To_Be_Selected == "Magnet Detector") {
+        } else if (App_To_Be_Selected == "Mag Detector") {
             Full_Clear()
             basic.showString("Magnet Detector")
+        } else if (App_To_Be_Selected == "Settings") {
+            Full_Clear()
+            basic.showString("Settings")
         }
     }
 })
 basic.forever(function () {
-    if (App_Selected == "Magnet Detector") {
+    if (App_Selected == "Settings") {
+        Full_Clear()
+        Settings_Item = "Back"
+    }
+})
+basic.forever(function () {
+    if (App_Selected == "Mag Detector") {
         Full_Clear()
         basic.showString("" + (input.magneticForce(Dimension.Strength)))
     }
