@@ -1,4 +1,5 @@
 input.onButtonPressed(Button.A, function () {
+    serial.writeLine("Button A")
     if (App_Selected == "Menu") {
         Full_Clear()
         if (App_To_Be_Selected == "Steps") {
@@ -9,7 +10,6 @@ input.onButtonPressed(Button.A, function () {
             App_To_Be_Selected = "Mag Detector"
         }
     } else if (App_Selected == "Settings") {
-        Full_Clear()
         if (true) {
         	
         }
@@ -20,6 +20,7 @@ function Full_Clear () {
     basic.clearScreen()
 }
 input.onButtonPressed(Button.B, function () {
+    serial.writeLine("Button B")
     if (App_Selected == "Menu") {
         Full_Clear()
         if (App_To_Be_Selected == "Compass") {
@@ -38,6 +39,7 @@ input.onGesture(Gesture.Shake, function () {
     }
 })
 input.onLogoEvent(TouchButtonEvent.Pressed, function () {
+    serial.writeLine("Logo Pressed")
     if (App_Selected == "Menu") {
         Full_Clear()
         App_Selected = App_To_Be_Selected
