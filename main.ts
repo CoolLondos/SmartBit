@@ -45,6 +45,10 @@ input.onLogoEvent(TouchButtonEvent.Pressed, function () {
     } else if (App_Selected == "Settings" && Settings_Item == "Back") {
         Full_Clear()
         App_Selected = "Menu"
+    } else if (App_Selected == "Settings" && Settings_Item == "Sleep") {
+        Full_Clear()
+    } else if (false) {
+    	
     } else {
         Full_Clear()
         App_Selected = "Menu"
