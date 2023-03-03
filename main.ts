@@ -10,9 +10,7 @@ input.onButtonPressed(Button.A, function () {
             App_To_Be_Selected = "Mag Detector"
         }
     } else if (App_Selected == "Settings") {
-        if (true) {
-        	
-        }
+    	
     }
 })
 function Full_Clear () {
@@ -44,6 +42,9 @@ input.onLogoEvent(TouchButtonEvent.Pressed, function () {
         Full_Clear()
         App_Selected = App_To_Be_Selected
         App_To_Be_Selected = "Menu"
+    } else if (App_Selected == "Settings" && Settings_Item == "Back") {
+        Full_Clear()
+        App_Selected = "Menu"
     } else {
         Full_Clear()
         App_Selected = "Menu"
@@ -58,6 +59,7 @@ App_To_Be_Selected = "Compass"
 App_Selected = "Menu"
 radio.setTransmitPower(1)
 basic.showString("Select App")
+serial.writeString("Serial: " + control.deviceSerialNumber())
 basic.forever(function () {
     if (App_Selected == "Menu") {
         if (App_To_Be_Selected == "Compass") {
