@@ -10,7 +10,11 @@ input.onButtonPressed(Button.A, function () {
             App_To_Be_Selected = "Mag Detector"
         }
     } else if (App_Selected == "Settings") {
-    	
+        if (Settings_Item == "Sleep") {
+            Settings_Item = "Sleep"
+        } else if (Settings_Item == "Back") {
+            Settings_Item = "Sleep"
+        }
     }
 })
 function Full_Clear () {
@@ -27,6 +31,12 @@ input.onButtonPressed(Button.B, function () {
             App_To_Be_Selected = "Mag Detector"
         } else if (App_To_Be_Selected == "Mag Detector") {
             App_To_Be_Selected = "Settings"
+        }
+    } else if (App_Selected == "Settings") {
+        if (Settings_Item == "Back") {
+            Settings_Item = "Back"
+        } else if (Settings_Item == "Sleep") {
+            Settings_Item = "Back"
         }
     }
 })
@@ -55,8 +65,8 @@ input.onLogoEvent(TouchButtonEvent.Pressed, function () {
     }
 })
 let Degrees = 0
-let Settings_Item = ""
 let Steps = 0
+let Settings_Item = ""
 let App_Selected = ""
 let App_To_Be_Selected = ""
 App_To_Be_Selected = "Compass"
@@ -86,7 +96,12 @@ basic.forever(function () {
 basic.forever(function () {
     if (App_Selected == "Settings") {
         Full_Clear()
-        Settings_Item = "Back"
+        if (Settings_Item == "Back") {
+            basic.showString("Back")
+        }
+        if (Settings_Item == "Sleep") {
+            basic.showString("Sleep")
+        }
     }
 })
 basic.forever(function () {
