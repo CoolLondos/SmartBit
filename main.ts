@@ -42,13 +42,13 @@ input.onLogoEvent(TouchButtonEvent.Pressed, function () {
         Full_Clear()
         App_Selected = App_To_Be_Selected
         App_To_Be_Selected = "Menu"
-    } else if (App_Selected == "Settings" && Settings_Item == "Back") {
-        Full_Clear()
-        App_Selected = "Menu"
-    } else if (App_Selected == "Settings" && Settings_Item == "Sleep") {
-        Full_Clear()
-    } else if (false) {
-    	
+    } else if (App_Selected == "Settings") {
+        if (Settings_Item == "Back") {
+            Full_Clear()
+            App_Selected = "Menu"
+        } else if (Settings_Item == "Sleep") {
+            Full_Clear()
+        }
     } else {
         Full_Clear()
         App_Selected = "Menu"
